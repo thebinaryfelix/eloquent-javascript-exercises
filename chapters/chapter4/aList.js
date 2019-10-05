@@ -50,7 +50,7 @@ const prepend = (element, list) => {
 }
 console.log(prepend(0, listToTransform)) // => { value: 0, rest: { value: 1, rest: [Object] } }
 
-// Get and element from the list, recursively.
+// Get an element from the list, recursively.
 const nth = (list, number) => {
   if (!list) return 'Element does not exist.'
 
