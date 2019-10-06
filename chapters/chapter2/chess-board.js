@@ -1,4 +1,4 @@
-const chessBoard = (size = 2) => {
+export const chessBoard = (size = 2) => {
   let board = ''
   const lineSize = size / 2
   const oddLines = '# '
