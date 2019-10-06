@@ -1,17 +1,4 @@
-const arrayToTransform = [1, 2, 3]
-const listToTransform = {
-  value: 1,
-  rest: {
-    value: 2,
-    rest: {
-      value: 3,
-      rest: null,
-    },
-  },
-}
-
-// Part 1
-const arrayToList = array => {
+export const arrayToList = array => {
   let list = {}
   const lastIndex = array.length - 1
 
@@ -25,10 +12,8 @@ const arrayToList = array => {
 
   return list
 }
-console.log(arrayToList(arrayToTransform)) // => { value: 1, rest: { value: 2, rest: { value: 3, rest: null } } }
 
-// Using while
-const listToArray = list => {
+export const listToArray = list => {
   let initialElement = list
   const array = []
 
@@ -39,21 +24,16 @@ const listToArray = list => {
 
   return array
 }
-console.log(listToArray(listToTransform)) // [1, 2, 3]
 
-// Part 2
-const prepend = (element, list) => {
+export const prepend = (element, list) => {
   return {
     value: element,
     rest: list,
   }
 }
-console.log(prepend(0, listToTransform)) // => { value: 0, rest: { value: 1, rest: [Object] } }
 
-// Get an element from the list, recursively.
-const nth = (list, number) => {
+export const nth = (list, number) => {
   if (!list) return 'Element does not exist.'
 
   return number - 1 === 0 && list !== null ? list : nth(list.rest, number - 1)
 }
-console.log(nth(listToTransform, 3)) // => { value: 3, rest: null }
