@@ -4,6 +4,7 @@
   "description": "Exercises from the book Eloquent Javascript",
   "main": "index.js",
   "scripts": {
+    "build:watch": "./node_modules/.bin/babel src --watch --out-dir dist --ignore '**/*.test.js'",
     "build": "./node_modules/.bin/babel src --out-dir dist --ignore '**/*.test.js'",
     "test": "jest"
   },
