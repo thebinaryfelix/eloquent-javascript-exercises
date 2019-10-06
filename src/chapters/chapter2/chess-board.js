@@ -11,7 +11,5 @@ export const chessBoard = (size = 2) => {
         : `${evenLines.repeat(lineSize)}\n`
   }
 
-  console.log(board.trim())
+  return board.trim()
 }
-
-chessBoard(8)
