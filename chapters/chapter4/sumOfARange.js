@@ -1,19 +1,13 @@
-// Part 1
-const range = (start, end, step = 1) => {
+export const range = (start, end, step) => {
   const numbers = []
-  const interval = Math.abs(step)
+  const interval = Math.abs(step) || 1
 
-  if (!step) return []
+  if (start < end && step <= 0) return []
+  if (start > end && step >= 0) return []
 
-  if (step > 0) {
-    if (start < end) {
-      for (let i = start; i <= end; i += interval) {
-        numbers.push(i)
-      }
-    } else {
-      for (let i = end; i >= start; i -= interval) {
-        numbers.push(i)
-      }
+  if (start < end) {
+    for (let i = start; i <= end; i += interval) {
+      numbers.push(i)
     }
   } else {
     for (let i = start; i >= end; i -= interval) {
@@ -24,7 +18,10 @@ const range = (start, end, step = 1) => {
   return numbers
 }
 
-// Part 2
-const sum = numbers => numbers.reduce((accum, current) => accum + current, 0)
+export const sum = numbers => {
+  if (typeof numbers === 'number') return numbers
 
-console.log(sum(range(1, 10))) // => 55
+  return Array.isArray(numbers)
+    ? numbers.reduce((accum, current) => accum + current, 0)
+    : null
+}
