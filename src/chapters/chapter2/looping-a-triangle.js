@@ -1,8 +1,8 @@
-const loopATriangle = (n, char = '#') => {
+export const loopATriangle = (n, char = '#') => {
   let charToRepeat = String(char)
+  let output = ''
   for (let i = 1; i <= n; i += 1) {
-    console.log(charToRepeat.repeat(i))
+    output += `${charToRepeat.repeat(i)}\n`
   }
+  return output
 }
-
-loopATriangle(5)
